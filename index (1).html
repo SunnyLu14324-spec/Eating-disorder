@@ -1,0 +1,684 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Eating Disorders — What You Need to Know</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --purple-50: #EEEDFE;
+      --purple-100: #CECBF6;
+      --purple-600: #534AB7;
+      --purple-800: #3C3489;
+      --teal-50: #E1F5EE;
+      --teal-100: #9FE1CB;
+      --teal-600: #0F6E56;
+      --teal-800: #085041;
+      --coral-50: #FAECE7;
+      --coral-100: #F5C4B3;
+      --coral-600: #993C1D;
+      --coral-800: #712B13;
+      --amber-50: #FAEEDA;
+      --amber-100: #FAC775;
+      --amber-600: #854F0B;
+      --amber-800: #633806;
+      --blue-50: #E6F1FB;
+      --blue-100: #B5D4F4;
+      --blue-600: #185FA5;
+      --blue-800: #0C447C;
+      --pink-50: #FBEAF0;
+      --pink-600: #993356;
+      --gray-100: #D3D1C7;
+      --gray-600: #5F5E5A;
+      --text-primary: #1a1a1a;
+      --text-secondary: #5a5a5a;
+      --text-tertiary: #888;
+      --bg-primary: #ffffff;
+      --bg-secondary: #f7f6f2;
+      --border: rgba(0,0,0,0.1);
+      --radius-sm: 8px;
+      --radius-md: 12px;
+      --radius-lg: 16px;
+    }
+
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --text-primary: #f0efeb;
+        --text-secondary: #a8a69e;
+        --text-tertiary: #6b6966;
+        --bg-primary: #1c1b18;
+        --bg-secondary: #252420;
+        --border: rgba(255,255,255,0.1);
+        --purple-50: #26215C;
+        --purple-100: #3C3489;
+        --purple-600: #AFA9EC;
+        --purple-800: #CECBF6;
+        --teal-50: #04342C;
+        --teal-100: #085041;
+        --teal-600: #5DCAA5;
+        --teal-800: #9FE1CB;
+        --coral-50: #4A1B0C;
+        --coral-100: #712B13;
+        --coral-600: #F0997B;
+        --coral-800: #F5C4B3;
+        --amber-50: #412402;
+        --amber-100: #633806;
+        --amber-600: #EF9F27;
+        --amber-800: #FAC775;
+        --blue-50: #042C53;
+        --blue-100: #0C447C;
+        --blue-600: #85B7EB;
+        --blue-800: #B5D4F4;
+        --pink-50: #4B1528;
+        --pink-600: #ED93B1;
+      }
+    }
+
+    body {
+      font-family: 'Inter', system-ui, sans-serif;
+      font-size: 16px;
+      line-height: 1.7;
+      color: var(--text-primary);
+      background: var(--bg-secondary);
+    }
+
+    a { color: var(--purple-600); }
+
+    /* ── HERO ── */
+    .hero {
+      background: var(--bg-primary);
+      border-bottom: 1px solid var(--border);
+      padding: 4rem 1.5rem 3rem;
+      text-align: center;
+    }
+    .hero-eyebrow {
+      display: inline-block;
+      background: var(--purple-50);
+      color: var(--purple-800);
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      padding: 4px 14px;
+      border-radius: 20px;
+      margin-bottom: 1.25rem;
+    }
+    .hero h1 {
+      font-size: clamp(26px, 5vw, 40px);
+      font-weight: 600;
+      line-height: 1.2;
+      color: var(--text-primary);
+      margin-bottom: 1rem;
+      max-width: 520px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+    .hero p {
+      font-size: 15px;
+      color: var(--text-secondary);
+      max-width: 480px;
+      margin: 0 auto 2rem;
+    }
+    .hero-stats {
+      display: flex;
+      justify-content: center;
+      gap: clamp(1.5rem, 4vw, 3rem);
+      flex-wrap: wrap;
+    }
+    .hero-stat .num {
+      font-size: 24px;
+      font-weight: 600;
+      color: var(--purple-600);
+    }
+    .hero-stat .lbl {
+      font-size: 12px;
+      color: var(--text-tertiary);
+      margin-top: 2px;
+    }
+
+    /* ── NAV ── */
+    nav {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: var(--bg-primary);
+      border-bottom: 1px solid var(--border);
+      display: flex;
+      overflow-x: auto;
+      -webkit-overflow-scrolling: touch;
+      scrollbar-width: none;
+    }
+    nav::-webkit-scrollbar { display: none; }
+    .nav-btn {
+      padding: 0.875rem 1.25rem;
+      font-size: 13px;
+      font-weight: 500;
+      color: var(--text-secondary);
+      border: none;
+      background: none;
+      cursor: pointer;
+      white-space: nowrap;
+      border-bottom: 2px solid transparent;
+      transition: color 0.15s, border-color 0.15s;
+      font-family: inherit;
+    }
+    .nav-btn:hover { color: var(--text-primary); }
+    .nav-btn.active { color: var(--purple-600); border-bottom-color: var(--purple-600); }
+
+    /* ── SECTIONS ── */
+    .section { display: none; max-width: 720px; margin: 0 auto; padding: 2rem 1.25rem 4rem; }
+    .section.active { display: block; }
+
+    .section-title {
+      font-size: 20px;
+      font-weight: 600;
+      color: var(--text-primary);
+      margin-bottom: 0.5rem;
+    }
+    .section-desc {
+      font-size: 14px;
+      color: var(--text-secondary);
+      margin-bottom: 2rem;
+    }
+
+    /* ── CARDS ── */
+    .card {
+      background: var(--bg-primary);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-md);
+      padding: 1.25rem;
+      margin-bottom: 0.875rem;
+    }
+    .card-header {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 0.875rem;
+    }
+    .icon-circle {
+      width: 38px;
+      height: 38px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      font-size: 18px;
+    }
+    .ic-purple { background: var(--purple-50); color: var(--purple-600); }
+    .ic-teal   { background: var(--teal-50);   color: var(--teal-600);   }
+    .ic-coral  { background: var(--coral-50);  color: var(--coral-600);  }
+    .ic-amber  { background: var(--amber-50);  color: var(--amber-600);  }
+    .ic-blue   { background: var(--blue-50);   color: var(--blue-600);   }
+    .ic-pink   { background: var(--pink-50);   color: var(--pink-600);   }
+
+    .card h3 { font-size: 15px; font-weight: 600; color: var(--text-primary); }
+    .card p  { font-size: 14px; color: var(--text-secondary); line-height: 1.7; }
+    .card ul { padding-left: 1.2rem; }
+    .card li { font-size: 14px; color: var(--text-secondary); margin-bottom: 5px; line-height: 1.6; }
+
+    /* ── METRICS ── */
+    .grid-2 {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+      gap: 12px;
+      margin-bottom: 1rem;
+    }
+    .metric {
+      background: var(--bg-primary);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-sm);
+      padding: 1rem;
+    }
+    .metric .m-num { font-size: 22px; font-weight: 600; color: var(--purple-600); margin-bottom: 4px; }
+    .metric .m-lbl { font-size: 12px; color: var(--text-secondary); line-height: 1.5; }
+
+    /* ── BADGES ── */
+    .badge {
+      display: inline-block;
+      font-size: 11px;
+      font-weight: 500;
+      padding: 3px 10px;
+      border-radius: 20px;
+      margin: 3px 3px 3px 0;
+    }
+    .bp { background: var(--purple-50); color: var(--purple-800); }
+    .bt { background: var(--teal-50);   color: var(--teal-800);   }
+    .bc { background: var(--coral-50);  color: var(--coral-800);  }
+    .ba { background: var(--amber-50);  color: var(--amber-800);  }
+    .bb { background: var(--blue-50);   color: var(--blue-800);   }
+
+    /* ── WARNING BOX ── */
+    .warning-box {
+      background: var(--amber-50);
+      border: 1px solid var(--amber-100);
+      border-radius: var(--radius-sm);
+      padding: 1rem;
+      margin-top: 1rem;
+    }
+    .warning-box p { font-size: 13px; color: var(--amber-800); line-height: 1.6; }
+
+    /* ── HOTLINE ── */
+    .hotline {
+      background: var(--teal-50);
+      border: 1px solid var(--teal-100);
+      border-radius: var(--radius-sm);
+      padding: 1rem;
+      margin-top: 1.5rem;
+    }
+    .hotline p { font-size: 13px; color: var(--teal-800); line-height: 1.7; }
+
+    /* ── TYPE TABS ── */
+    .type-tabs {
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+      margin-bottom: 1rem;
+    }
+    .type-tab {
+      padding: 6px 14px;
+      font-size: 13px;
+      font-weight: 500;
+      border-radius: 20px;
+      border: 1px solid var(--border);
+      background: var(--bg-primary);
+      color: var(--text-secondary);
+      cursor: pointer;
+      transition: background 0.15s, color 0.15s, border-color 0.15s;
+      font-family: inherit;
+    }
+    .type-tab:hover, .type-tab.active {
+      background: var(--purple-50);
+      color: var(--purple-800);
+      border-color: var(--purple-100);
+    }
+    .type-detail { display: none; }
+    .type-detail.active { display: block; }
+
+    /* ── STEPS ── */
+    .step {
+      display: flex;
+      gap: 14px;
+      margin-bottom: 1.25rem;
+      align-items: flex-start;
+    }
+    .step-num {
+      width: 30px;
+      height: 30px;
+      border-radius: 50%;
+      background: var(--purple-50);
+      color: var(--purple-800);
+      font-size: 13px;
+      font-weight: 600;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      margin-top: 2px;
+    }
+    .step-body h4 { font-size: 14px; font-weight: 600; color: var(--text-primary); margin-bottom: 4px; }
+    .step-body p  { font-size: 13px; color: var(--text-secondary); line-height: 1.6; }
+
+    /* ── DIVIDER ── */
+    .divider { height: 1px; background: var(--border); margin: 1.75rem 0; }
+
+    .sub-title {
+      font-size: 15px;
+      font-weight: 600;
+      color: var(--text-primary);
+      margin-bottom: 1rem;
+    }
+
+    /* ── FOOTER ── */
+    footer {
+      background: var(--bg-primary);
+      border-top: 1px solid var(--border);
+      padding: 2rem 1.5rem;
+      text-align: center;
+    }
+    footer p { font-size: 12px; color: var(--text-tertiary); line-height: 1.7; }
+
+    @media (max-width: 480px) {
+      .hero { padding: 2.5rem 1rem 2rem; }
+      .section { padding: 1.5rem 1rem 3rem; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- HERO -->
+<header class="hero">
+  <div class="hero-eyebrow">Mental Health Awareness</div>
+  <h1>Understanding Eating Disorders</h1>
+  <p>Eating disorders are serious, life-threatening mental illnesses affecting millions worldwide. Understanding them is the first step toward recovery.</p>
+  <div class="hero-stats">
+    <div class="hero-stat"><div class="num">9%</div><div class="lbl">Lifetime global prevalence</div></div>
+    <div class="hero-stat"><div class="num">~70M</div><div class="lbl">People affected worldwide</div></div>
+    <div class="hero-stat"><div class="num">2nd highest</div><div class="lbl">Mortality among mental illnesses</div></div>
+  </div>
+</header>
+
+<!-- NAV -->
+<nav role="navigation" aria-label="Topic navigation">
+  <button class="nav-btn active" onclick="showSection('symptoms', this)">Symptoms</button>
+  <button class="nav-btn" onclick="showSection('population', this)">Who Is Affected</button>
+  <button class="nav-btn" onclick="showSection('stats', this)">Prevalence</button>
+  <button class="nav-btn" onclick="showSection('treatment', this)">Treatment &amp; Prevention</button>
+</nav>
+
+<main>
+
+<!-- SECTION 1: SYMPTOMS -->
+<section id="symptoms" class="section active" aria-label="Symptoms">
+  <h2 class="section-title">Types and symptoms</h2>
+  <p class="section-desc">Eating disorders are not a single condition — they are a group of mental health disorders defined by abnormal eating behaviors and a distorted relationship with food and body image.</p>
+
+  <div class="type-tabs" role="tablist">
+    <button class="type-tab active" role="tab" onclick="showType('an', this)">Anorexia Nervosa</button>
+    <button class="type-tab" role="tab" onclick="showType('bn', this)">Bulimia Nervosa</button>
+    <button class="type-tab" role="tab" onclick="showType('bed', this)">Binge Eating Disorder</button>
+    <button class="type-tab" role="tab" onclick="showType('arfid', this)">ARFID</button>
+  </div>
+
+  <div id="an" class="type-detail active" role="tabpanel">
+    <div class="card">
+      <div class="card-header">
+        <div class="icon-circle ic-coral">⚖️</div>
+        <h3>Anorexia Nervosa</h3>
+      </div>
+      <ul>
+        <li>Extreme restriction of food intake; significantly low body weight</li>
+        <li>Intense fear of gaining weight, even when already dangerously underweight</li>
+        <li>Distorted body image — perceiving oneself as overweight despite being very thin</li>
+        <li>Physical effects: amenorrhea, osteoporosis, irregular heartbeat, electrolyte imbalances</li>
+        <li>Extreme fatigue, cold intolerance, hair thinning, dry skin</li>
+      </ul>
+    </div>
+  </div>
+
+  <div id="bn" class="type-detail" role="tabpanel">
+    <div class="card">
+      <div class="card-header">
+        <div class="icon-circle ic-purple">🔄</div>
+        <h3>Bulimia Nervosa</h3>
+      </div>
+      <ul>
+        <li>Recurrent binge episodes — consuming large amounts of food with a sense of loss of control</li>
+        <li>Compensatory behaviors after bingeing: self-induced vomiting, laxative misuse, excessive exercise</li>
+        <li>Self-worth excessively tied to body shape and weight</li>
+        <li>Physical effects: swollen parotid glands, tooth enamel erosion, esophageal damage</li>
+        <li>Body weight may appear normal — this disorder is often invisible from the outside</li>
+      </ul>
+    </div>
+  </div>
+
+  <div id="bed" class="type-detail" role="tabpanel">
+    <div class="card">
+      <div class="card-header">
+        <div class="icon-circle ic-amber">😔</div>
+        <h3>Binge Eating Disorder (BED)</h3>
+      </div>
+      <ul>
+        <li>Recurrent episodes of eating large quantities of food, without compensatory behaviors</li>
+        <li>Eating very quickly, even when not physically hungry</li>
+        <li>Strong feelings of shame, disgust, or depression after bingeing</li>
+        <li>Often eating alone due to embarrassment about the amount consumed</li>
+        <li>Can lead to obesity, type 2 diabetes, cardiovascular disease</li>
+      </ul>
+    </div>
+  </div>
+
+  <div id="arfid" class="type-detail" role="tabpanel">
+    <div class="card">
+      <div class="card-header">
+        <div class="icon-circle ic-blue">🚫</div>
+        <h3>Avoidant/Restrictive Food Intake Disorder (ARFID)</h3>
+      </div>
+      <ul>
+        <li>Extreme sensitivity to the sensory properties of food — taste, texture, smell, appearance</li>
+        <li>Avoidance driven by fear of choking, vomiting, or allergic reactions, not body image concerns</li>
+        <li>Very limited diet leading to nutritional deficiencies and growth problems</li>
+        <li>Unlike anorexia, there is no distress about body weight or shape</li>
+        <li>Most common in children but can persist into adulthood</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="warning-box">
+    <p>⚠️ <strong>Eating disorders have among the highest mortality rates of all mental illnesses.</strong> If you or someone you know is showing these signs, please seek professional help as soon as possible.</p>
+  </div>
+</section>
+
+<!-- SECTION 2: POPULATION -->
+<section id="population" class="section" aria-label="Who is affected">
+  <h2 class="section-title">Who is affected?</h2>
+  <p class="section-desc">Eating disorders can affect anyone — regardless of age, gender, or background. However, certain groups face higher risks. Understanding these risk factors enables earlier identification and intervention.</p>
+
+  <div class="card">
+    <div class="card-header">
+      <div class="icon-circle ic-purple">👧</div>
+      <h3>Adolescents and young women</h3>
+    </div>
+    <p>Eating disorders most commonly emerge between ages 12 and 25. Women are affected at roughly 2–3 times the rate of men. Puberty, social comparison, and developing identity make this group especially vulnerable.</p>
+    <div style="margin-top: 10px;">
+      <span class="badge bp">Peak onset: ages 12–18</span>
+      <span class="badge bp">Majority female</span>
+      <span class="badge bp">Social media influence</span>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-header">
+      <div class="icon-circle ic-teal">🏅</div>
+      <h3>Athletes and performers</h3>
+    </div>
+    <p>Sports and disciplines with weight or aesthetic requirements — gymnastics, ballet, distance running, wrestling — carry elevated risk. The "female athlete triad" (eating disorder, amenorrhea, osteoporosis) is well-documented among competitive female athletes.</p>
+    <div style="margin-top: 10px;">
+      <span class="badge bt">Ballet &amp; dance</span>
+      <span class="badge bt">Gymnastics</span>
+      <span class="badge bt">Long-distance running</span>
+      <span class="badge bt">Wrestling</span>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-header">
+      <div class="icon-circle ic-coral">🧬</div>
+      <h3>Those with a family history</h3>
+    </div>
+    <p>Eating disorders have a significant genetic component. Having a first-degree relative with an eating disorder, depression, or anxiety substantially increases individual risk. Genetic factors are estimated to account for 50–80% of anorexia nervosa risk.</p>
+  </div>
+
+  <div class="card">
+    <div class="card-header">
+      <div class="icon-circle ic-amber">💔</div>
+      <h3>People who have experienced trauma</h3>
+    </div>
+    <p>Childhood abuse, sexual trauma, bullying, and family dysfunction are significant risk factors. Eating disorders frequently co-occur with anxiety disorders, depression, and PTSD.</p>
+    <div style="margin-top: 10px;">
+      <span class="badge ba">Trauma history</span>
+      <span class="badge ba">Perfectionism</span>
+      <span class="badge ba">Low self-esteem</span>
+      <span class="badge ba">Anxiety / depression</span>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-header">
+      <div class="icon-circle ic-blue">👨</div>
+      <h3>Men — the overlooked patients</h3>
+    </div>
+    <p>Eating disorders in men are vastly underdiagnosed. Men make up an estimated 25–30% of all cases, yet many go untreated due to the stigma that eating disorders "only affect women." Men more commonly present with muscle dysmorphia — an obsessive preoccupation with gaining muscle mass.</p>
+  </div>
+</section>
+
+<!-- SECTION 3: STATS -->
+<section id="stats" class="section" aria-label="Prevalence">
+  <h2 class="section-title">Global prevalence and trends</h2>
+  <p class="section-desc">Eating disorders are a seriously underestimated public health crisis. The data below reflects their true impact.</p>
+
+  <div class="grid-2">
+    <div class="metric"><div class="m-num">9%</div><div class="m-lbl">Estimated lifetime global prevalence</div></div>
+    <div class="metric"><div class="m-num">~70 million</div><div class="m-lbl">People affected worldwide</div></div>
+    <div class="metric"><div class="m-num">1–2%</div><div class="m-lbl">Prevalence of anorexia nervosa in women</div></div>
+    <div class="metric"><div class="m-num">5%</div><div class="m-lbl">Prevalence of bulimia nervosa in women</div></div>
+  </div>
+
+  <div class="card">
+    <div class="card-header">
+      <div class="icon-circle ic-coral">📈</div>
+      <h3>Rising rates in East Asia</h3>
+    </div>
+    <p>As Western beauty ideals spread via social media and globalization, eating disorder rates have risen sharply among young people across East Asia. Research shows that eating disorder behaviors among female college students in China, Japan, and South Korea have increased considerably over the past two decades. Urban populations consistently show higher rates than rural areas.</p>
+  </div>
+
+  <div class="card">
+    <div class="card-header">
+      <div class="icon-circle ic-purple">💔</div>
+      <h3>Mortality and complications</h3>
+    </div>
+    <ul>
+      <li>Anorexia nervosa has one of the highest mortality rates of any psychiatric disorder — approximately 5–10% of patients die within 10 years of diagnosis</li>
+      <li>Causes of death include multi-organ failure from malnutrition, cardiac arrest, electrolyte imbalances, and suicide</li>
+      <li>Around 20% of patients develop a chronic course, with long-term impact on quality of life</li>
+    </ul>
+  </div>
+
+  <div class="card">
+    <div class="card-header">
+      <div class="icon-circle ic-teal">⏱️</div>
+      <h3>Delays in diagnosis and treatment</h3>
+    </div>
+    <ul>
+      <li>On average, 3 to 6 years pass between symptom onset and first seeking professional help</li>
+      <li>An estimated 70% of people with eating disorders never receive any treatment</li>
+      <li>Stigma, lack of awareness, and limited specialist services are the main barriers to care</li>
+    </ul>
+  </div>
+
+  <div class="card">
+    <div class="card-header">
+      <div class="icon-circle ic-amber">📱</div>
+      <h3>Social media as a risk factor</h3>
+    </div>
+    <p>Research indicates that adolescents who use social media more than 3 hours daily are approximately twice as likely to develop disordered eating behaviors. Body shaming content, viral "diet challenges," and heavy filter use collectively contribute to an environment that fuels eating disorders, particularly among teenage girls.</p>
+  </div>
+</section>
+
+<!-- SECTION 4: TREATMENT -->
+<section id="treatment" class="section" aria-label="Treatment and prevention">
+  <h2 class="section-title">Treatment and prevention</h2>
+  <p class="section-desc">Eating disorders are treatable. Early intervention, professional support, and a caring environment are the key ingredients of recovery.</p>
+
+  <h3 class="sub-title">Treatment pathway</h3>
+
+  <div class="step">
+    <div class="step-num">1</div>
+    <div class="step-body">
+      <h4>Professional assessment and diagnosis</h4>
+      <p>A comprehensive evaluation by a psychiatrist, psychologist, or general practitioner is the essential first step — including physical examination, psychological screening, and nutritional assessment. Self-diagnosis is not sufficient; a professional diagnosis is the foundation of effective treatment.</p>
+    </div>
+  </div>
+
+  <div class="step">
+    <div class="step-num">2</div>
+    <div class="step-body">
+      <h4>Psychotherapy (first-line treatment)</h4>
+      <p>Enhanced Cognitive Behavioral Therapy (CBT-E) is the leading evidence-based treatment for eating disorders. It helps patients identify and change distorted thoughts about food, body weight, and self-worth. Family-Based Treatment (FBT) is especially effective for adolescents, using the family unit as an active part of recovery.</p>
+    </div>
+  </div>
+
+  <div class="step">
+    <div class="step-num">3</div>
+    <div class="step-body">
+      <h4>Nutritional rehabilitation</h4>
+      <p>A registered dietitian creates a personalized meal plan to help patients gradually restore a healthy relationship with food and eating — while reducing food-related anxiety, fear, and avoidance behaviors.</p>
+    </div>
+  </div>
+
+  <div class="step">
+    <div class="step-num">4</div>
+    <div class="step-body">
+      <h4>Medical monitoring and medication where needed</h4>
+      <p>Patients with severe physical complications (cardiac arrhythmias, electrolyte disturbances) require close medical supervision. Some patients benefit from antidepressants under medical guidance, particularly when depression or severe anxiety is present alongside the eating disorder.</p>
+    </div>
+  </div>
+
+  <div class="step">
+    <div class="step-num">5</div>
+    <div class="step-body">
+      <h4>Inpatient or intensive outpatient programs</h4>
+      <p>When a patient's physical health is at immediate risk or outpatient treatment has not been effective, inpatient admission provides round-the-clock medical safety monitoring and intensive therapeutic support to stabilize and begin recovery.</p>
+    </div>
+  </div>
+
+  <div class="divider"></div>
+
+  <h3 class="sub-title">Prevention strategies</h3>
+
+  <div class="grid-2">
+    <div class="card" style="margin-bottom:0">
+      <div class="card-header" style="margin-bottom:0.5rem">
+        <div class="icon-circle ic-teal">👁️</div>
+        <h3>Promote positive body image</h3>
+      </div>
+      <p style="font-size:13px">Avoid negative comments about weight and appearance. Encourage people to appreciate what their bodies can do, not just how they look. Limit exposure to idealized or heavily filtered imagery.</p>
+    </div>
+    <div class="card" style="margin-bottom:0">
+      <div class="card-header" style="margin-bottom:0.5rem">
+        <div class="icon-circle ic-purple">💬</div>
+        <h3>Open family communication</h3>
+      </div>
+      <p style="font-size:13px">Create a home environment where children can express emotions and struggles freely — without turning to controlling their food intake as a way to cope with stress or find a sense of control.</p>
+    </div>
+    <div class="card" style="margin-bottom:0">
+      <div class="card-header" style="margin-bottom:0.5rem">
+        <div class="icon-circle ic-amber">📚</div>
+        <h3>Media literacy education</h3>
+      </div>
+      <p style="font-size:13px">Teach young people to critically evaluate what they see online. Help them understand that filters, editing, and curation make social media a poor benchmark for real bodies or real life.</p>
+    </div>
+    <div class="card" style="margin-bottom:0">
+      <div class="card-header" style="margin-bottom:0.5rem">
+        <div class="icon-circle ic-coral">❤️</div>
+        <h3>Early recognition and reduced stigma</h3>
+      </div>
+      <p style="font-size:13px">Schools, parents, and healthcare providers need to recognize the early warning signs of eating disorders, and reduce the stigma that stops people from reaching out for help before things become critical.</p>
+    </div>
+  </div>
+
+  <div class="hotline">
+    <p>🆘 <strong>Need help?</strong> If you or someone you know may be struggling with an eating disorder, please reach out to a healthcare provider or mental health professional. In the US, contact the <strong>National Eating Disorders Association (NEDA) Helpline: 1-800-931-2237</strong>. You are not alone — recovery is possible.</p>
+  </div>
+</section>
+
+</main>
+
+<!-- FOOTER -->
+<footer>
+  <p>This page is for educational purposes only and does not substitute professional medical advice.<br>
+  If you are concerned about yourself or someone else, please consult a qualified healthcare professional.</p>
+</footer>
+
+<script>
+  function showSection(id, btn) {
+    document.querySelectorAll('.section').forEach(s => s.classList.remove('active'));
+    document.querySelectorAll('.nav-btn').forEach(b => b.classList.remove('active'));
+    document.getElementById(id).classList.add('active');
+    btn.classList.add('active');
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  }
+  function showType(id, btn) {
+    document.querySelectorAll('.type-detail').forEach(d => d.classList.remove('active'));
+    document.querySelectorAll('.type-tab').forEach(b => b.classList.remove('active'));
+    document.getElementById(id).classList.add('active');
+    btn.classList.add('active');
+  }
+</script>
+</body>
+</html>
